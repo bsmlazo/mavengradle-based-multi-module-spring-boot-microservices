@@ -23,13 +23,13 @@ jobs:
           java-version: '11'
           distribution: 'temurin'
           cache: maven
-      
-      - name: Directorio
-        run: pwd && ls -ltr
+          
+      - name: Cambio directorio
+        run: cd service-a
         
       - name: Build with Maven
-        #run: mvn -B package --file pom.xml
-        run: mvn -B package -pl service-a
+        run: mvn -B package --file pom.xml
+        #run: mvn -B package -pl service-a
         
       - name: Build with Gradle
         uses: gradle/gradle-build-action@bd5760595778326ba7f1441bcf7e88b49de61a25 # v2.6.0
