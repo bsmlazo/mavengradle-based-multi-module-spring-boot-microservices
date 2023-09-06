@@ -64,6 +64,6 @@ jobs:
       - name: Build Image
         run: |
           cd service-a
-          chmod 755 target/service-a-0.0.1-SNAPSHOT.jar
+          chmod -R 755 ../service-a
           docker build --compress -t bsanmartin:latest .
           docker push bsanmartin:latest
