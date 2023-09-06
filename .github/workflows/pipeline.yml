@@ -63,5 +63,6 @@ jobs:
 
       - name: Build Image
         run: |
+          cd service-a
           docker build --compress -t bsanmartin:latest .
           docker push bsanmartin:latest
