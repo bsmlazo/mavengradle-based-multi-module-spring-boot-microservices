@@ -45,6 +45,12 @@ jobs:
         run: |
           cd service-a
           mvn -B package --file pom.xml
+
+      - name: Build Image
+        run: |
+          pwd
+          ls -ltra
+          docker --version
         
       #- name: Build with Gradle
       #  run: chmod +x service-a/gradlew && service-a/gradlew build
