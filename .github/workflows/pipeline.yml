@@ -45,11 +45,6 @@ jobs:
         run: |
           cd service-a
           mvn -B package --file pom.xml
-
-      - name: Build Image
-        run: |
-          ls -ltr service-a/target/service-a-0.0.1-SNAPSHOT.jar
-          echo usuario ${{ secrets.DOCKERHUB_TOKEN }}
         
       #- name: Build with Gradle
       #  run: chmod +x service-a/gradlew && service-a/gradlew build
@@ -66,8 +61,7 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-      - name: Build and push
-        uses: docker/build-push-action@v4
-        with:
-          push: true
-          tags: bsanmartin/service-a:latest
+      - name: Build Image
+        run: |
+          docker build --compress -t bsanmartin:latest .
+          docker push bsanmartin:latest
