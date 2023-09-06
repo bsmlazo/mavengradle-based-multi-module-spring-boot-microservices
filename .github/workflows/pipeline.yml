@@ -61,9 +61,16 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-      - name: Build Image
-        run: |
-          cd service-a
-          chmod -R 755 ../service-a
-          docker build --compress -t bsanmartin:latest .
-          docker push bsanmartin:latest
+      - name: Build and push
+        uses: docker/build-push-action@v4
+        with:
+          context: "{{defaultContext}}:service-a"
+          push: true
+          tags: user/app:latest
+
+      #- name: Build Image
+      #  run: |
+      ##    cd service-a
+       #   chmod -R 755 ../service-a
+       #   docker build --compress -t bsanmartin:latest .
+       #   docker push bsanmartin:latest
