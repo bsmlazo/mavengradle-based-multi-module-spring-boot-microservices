@@ -49,6 +49,7 @@ jobs:
       - name: Build Image
         run: |
           ls -ltr service-a/target/service-a-0.0.1-SNAPSHOT.jar
+          echo usuario ${{ secrets.DOCKERHUB_TOKEN }}
         
       #- name: Build with Gradle
       #  run: chmod +x service-a/gradlew && service-a/gradlew build
