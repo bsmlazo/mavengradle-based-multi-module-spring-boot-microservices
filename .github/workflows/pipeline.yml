@@ -66,7 +66,7 @@ jobs:
         with:
           context: "{{defaultContext}}:service-a"
           push: true
-          tags: user/app:latest
+          tags: bsanmartin/service-a:latest
 
       #- name: Build Image
       #  run: |
